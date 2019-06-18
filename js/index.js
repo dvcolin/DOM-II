@@ -7,14 +7,13 @@ logo.addEventListener('mouseover', event => {
 })
 
 /* KEYDOWN EVENT */
-
-const headerTitle = document.querySelector('.intro > h2');
+const keydownInput = document.querySelector('.keydown');
 
 function logKey(key) {
-    headerTitle.textContent = key.code;
+    event.target.value = key.code;
 }
 
-headerTitle.addEventListener('keydown', logKey);
+keydownInput.addEventListener('keydown', logKey);
 
 
 /* WHEEL EVENT */
@@ -22,13 +21,11 @@ const headerImg = document.querySelector('.intro > img');
 
 headerImg.addEventListener('wheel', event => {
     event.target.style.filter = 'hue-rotate(140deg)';
+    event.target.style.zIndex = '-10';
 })
 
 /* DRAG/DROP EVENT */
 const penImg = document.querySelector('.content-section img');
-const boatImg = document.querySelector('.dropzone');
-
-
 
 penImg.addEventListener('drag', event => {
     event.preventDefault();
@@ -48,6 +45,8 @@ homeLink.addEventListener('focus', event => {
 })
 
 /* COPY EVENT */
+const headerTitle = document.querySelector('.intro > h2');
+
 headerTitle.addEventListener('copy', event => {
     event.target.style.textTransform = 'uppercase';
 })
@@ -61,11 +60,7 @@ headerP.addEventListener('dblclick', event => {
 })
 
 /* SELECT EVENT */
-const header = document.querySelector('header');
-const selectInput = document.createElement('input');
-selectInput.setAttribute('type', 'text');
-selectInput.setAttribute('value', 'Hello Hey');
-header.appendChild(selectInput);
+const selectInput = document.querySelector('.select');
 
 function logSelection(event) {
     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
@@ -74,6 +69,15 @@ function logSelection(event) {
 
 selectInput.addEventListener('select', logSelection);
 
+
+/* RESIZE EVENT */
+const resizeInput = document.querySelector('.resize');
+resizeInput.value = `Width: ${window.innerWidth}`;
+
+
+window.addEventListener('resize', () => {
+    resizeInput.value = `Width: ${window.innerWidth}`;
+});
 
 
 
