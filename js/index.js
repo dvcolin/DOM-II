@@ -3,7 +3,6 @@
 const logo = document.querySelector('h1.logo-heading');
 
 logo.addEventListener('mouseover', event => {
-    event.preventDefault();
     event.target.style.color = 'orange';
 })
 
@@ -40,6 +39,40 @@ penImg.addEventListener('drag', event => {
 window.addEventListener('load', () => console.log('The page has loaded!'));
 
 
+/* FOCUS EVENT */
+const homeLink = document.querySelector('header nav a');
+
+
+homeLink.addEventListener('focus', event => {
+    event.target.style.background = 'lime';
+})
+
+/* COPY EVENT */
+headerTitle.addEventListener('copy', event => {
+    event.target.style.textTransform = 'uppercase';
+})
+
+
+/* DOUBLE CLICK EVENT */
+const headerP = document.querySelector('header p');
+
+headerP.addEventListener('dblclick', event => {
+    event.target.style.color = 'red';
+})
+
+/* SELECT EVENT */
+const header = document.querySelector('header');
+const selectInput = document.createElement('input');
+selectInput.setAttribute('type', 'text');
+selectInput.setAttribute('value', 'Hello Hey');
+header.appendChild(selectInput);
+
+function logSelection(event) {
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    console.log(selection);
+}
+
+selectInput.addEventListener('select', logSelection);
 
 
 
