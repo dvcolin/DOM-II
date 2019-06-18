@@ -4,6 +4,8 @@ const logo = document.querySelector('h1.logo-heading');
 
 logo.addEventListener('mouseover', event => {
     event.target.style.color = 'orange';
+    TweenMax.to('.logo-heading', 1, {left: 600});
+    
 })
 
 /* KEYDOWN EVENT */
@@ -56,7 +58,9 @@ headerTitle.addEventListener('copy', event => {
 const headerP = document.querySelector('header p');
 
 headerP.addEventListener('dblclick', event => {
+    event.stopPropagation();
     event.target.style.color = 'red';
+    headerTitle.style.color = 'blue';
 })
 
 /* SELECT EVENT */
@@ -79,6 +83,10 @@ window.addEventListener('resize', () => {
     resizeInput.value = `Width: ${window.innerWidth}`;
 });
 
+
+
+
+/********************************* STRETCH **********************************/
 
 
 
